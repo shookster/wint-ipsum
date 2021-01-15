@@ -1,25 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const express = require('express');
+const app = express();
+const routes = require('./router');
+
+const hostname = "127.0.0.1";
+const port = 3000;
+
+app.use(express.static('public'));
+
+app.use(routes);
+
+app.listen(port, () => {
+  console.log(`Server is listening at http://${hostname}:${port}/`);
+})
 
 export default App;

@@ -1,15 +1,20 @@
+//Require necessary modules
 const loremIpsum = require("./generator.js");
 const querystring = require("querystring");
 const fs = require("fs");
 
+// Require express and create express router object
 const express = require('express');
 const router = express.Router();
 
+// Route serves index.html
 router.get('/', (request, response) => {
     response.setHeader('Content-Type', 'text/html');
 
+    // Capture contents of index.html in a variable
     let fileContents = fs.readFileSync("./public/index.html", {encoding: "utf8"});
 
+    // Send response to the client with the index.html file
     response.write(fileContents);
     response.end();
 });

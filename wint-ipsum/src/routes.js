@@ -1,4 +1,5 @@
 //Require necessary modules
+// "loremIpsum" is defined in file genrator.js and imported here
 const loremIpsum = require("./generator.js");
 const querystring = require("querystring");
 const fs = require("fs");
